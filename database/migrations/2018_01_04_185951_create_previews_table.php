@@ -15,7 +15,15 @@ class CreatePreviewsTable extends Migration
     {
         Schema::create('previews', function (Blueprint $table) {
             $table->increments('id');
+            $table->integer('product_id')->unsigned()->index();
+            $table->string('customer');
+            $table->text('preview');
+            $table->integer('star');
             $table->timestamps();
+
+            $table->foreign('product_id')
+            ->references('id')->on('products')
+            ->onDelete('cascade');
         });
     }
 
