@@ -21,7 +21,7 @@ class ProductResource extends Resource
           "stock"      => $this->stock == 0 ? "out Of Stocked" : $this->stock,
           "descount"   => $this->descount,
           "totalPrice" => round( (1 - ($this->descount / 100)) * $this->price, 2),
-          "rating"     => $this->previews->count() > 0 ? $this->previews->sum('star') : "no Star tet!",
+          "rating"     => $this->previews->count() > 0 ? $this->previews->sum('star') : "no Star yet!",
 
           "href" => [
             "previews" => route('previews.index', $this->id)
